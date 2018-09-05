@@ -61,7 +61,7 @@ Parse_Arguments() {
 
 clean_Environment() {
 
-echo "-----------> Clean Docker Containers & Images, unused/lefover build artifacts"
+echo "-----------> Clean Docker Containers & Images, unused/leftover build artifacts"
 function clearContainers () {
         CONTAINER_IDS=$(docker ps -aq)
         if [ -z "$CONTAINER_IDS" ] || [ "$CONTAINER_IDS" = " " ]; then
