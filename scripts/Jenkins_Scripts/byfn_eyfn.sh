@@ -16,9 +16,16 @@ COMMIT=$(echo $RELEASE_TAG | awk -F - '{ print $4 }' | cut -d "<" -f1)
 VERSION=1.2.0
 echo "-----------> BASE_VERSION = $VERSION"
 
+# TODO
+# if [ $TRAVIS = true ]; then
+FABRIC_SAMPLES_ABSOLUTE_DIR=$TRAVIS_BUILD_DIR
+# else
+# FABRIC_SAMPLES_ABSOLUTE_DIR=$BASE_FOLDER/fabric-samples
+
 # XXX
+# TODO Parametrize so that it is "CI universal".
 #cd $BASE_FOLDER/fabric-samples || exit
-cd $TRAVIS_BUILD_DIR || exit
+cd $FABRIC_SAMPLES_ABSOLUTE_DIR || exit
 # XXX
 
 curl https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric/hyperledger-fabric-stable/$MARCH-$ARCH.$VERSION-stable-$COMMIT/hyperledger-fabric-stable-$MARCH-$ARCH.$VERSION-stable-$COMMIT.tar.gz | tar xz
@@ -66,7 +73,11 @@ fi
 
  echo "############### FABRIC-CA SAMPLES TEST ########################"
  echo "###############################################################"
- cd $WORKSPACE/gopath/src/github.com/hyperledger/fabric-samples/fabric-ca
+# XXX
+# TODO Parametrize so that it is "CI universal".
+#cd $WORKSPACE/gopath/src/github.com/hyperledger/fabric-samples/fabric-ca
+cd  $FABRIC_SAMPLES_ABSOLUTE_DIR/fabric-ca
+# XXX
  ./start.sh
  err_Check $? fabric-ca
  ./stop.sh

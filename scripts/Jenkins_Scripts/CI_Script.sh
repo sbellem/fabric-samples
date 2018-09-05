@@ -8,6 +8,7 @@
 # exit on first error
 
 # XXX
+# TODO Parametrize so that it is "CI universal".
 #export BASE_FOLDER=$WORKSPACE/gopath/src/github.com/hyperledger
 # XXX
 export PROJECT_VERSION=1.2.0-stable
