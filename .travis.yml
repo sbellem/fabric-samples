@@ -19,4 +19,4 @@ install:
 
 script:
   - echo 'Run byfn_eyfn Tests'
-  - ./scripts/Jenkins_Scripts/CI_Script.sh --byfn_eyfn_Tests
+  - cd ./scripts/Jenkins_Scripts && ./CI_Script.sh --byfn_eyfn_Tests
