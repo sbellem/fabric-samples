@@ -7,7 +7,9 @@
 
 # exit on first error
 
-export BASE_FOLDER=$WORKSPACE/gopath/src/github.com/hyperledger
+# XXX
+#export BASE_FOLDER=$WORKSPACE/gopath/src/github.com/hyperledger
+# XXX
 export PROJECT_VERSION=1.2.0-stable
 export NEXUS_URL=nexus3.hyperledger.org:10001
 export ORG_NAME="hyperledger/fabric"

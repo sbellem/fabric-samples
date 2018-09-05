@@ -15,11 +15,20 @@ RELEASE_TAG=$(cat maven-metadata.xml | grep release)
 COMMIT=$(echo $RELEASE_TAG | awk -F - '{ print $4 }' | cut -d "<" -f1)
 VERSION=1.2.0
 echo "-----------> BASE_VERSION = $VERSION"
-cd $BASE_FOLDER/fabric-samples || exit
+
+# XXX
+#cd $BASE_FOLDER/fabric-samples || exit
+cd $TRAVIS_BUILD_DIR || exit
+# XXX
+
 curl https://nexus.hyperledger.org/content/repositories/releases/org/hyperledger/fabric/hyperledger-fabric-stable/$MARCH-$ARCH.$VERSION-stable-$COMMIT/hyperledger-fabric-stable-$MARCH-$ARCH.$VERSION-stable-$COMMIT.tar.gz | tar xz
 
 cd first-network || exit
-export PATH=gopath/src/github.com/hyperledger/fabric-samples/bin:$PATH
+
+# XXX
+#export PATH=gopath/src/github.com/hyperledger/fabric-samples/bin:$PATH
+export PATH=$TRAVIS_BUILD_DIR/bin:$PATH
+# XXX
 
 err_Check() {
 if [ $1 != 0 ]; then
