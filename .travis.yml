@@ -1,0 +1,22 @@
+language: go
+go:
+  - 1.7
+sudo: required
+services:
+  - docker
+
+before_install:
+  - echo 'Clean Environment - Get Env Info'
+  - sh './scripts/Jenkins_Scripts/CI_Script.sh --clean_Environment --env_Info'
+
+install:
+  - echo 'Pull third_party images'
+  - sh './scripts/Jenkins_Scripts/CI_Script.sh --pull_Thirdparty_Images'
+  - echo 'Pull fabric images'
+  - sh './scripts/Jenkins_Scripts/CI_Script.sh --pull_Fabric_Images'
+  - echo 'Pull fabric-ca images'
+  - sh './scripts/Jenkins_Scripts/CI_Script.sh --pull_Fabric_CA_Image'
+
+script:
+  - echo 'Run byfn_eyfn Tests'
+  - sh './scripts/Jenkins_Scripts/CI_Script.sh --byfn_eyfn_Tests'
