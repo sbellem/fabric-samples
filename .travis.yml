@@ -7,16 +7,16 @@ services:
 
 before_install:
   - echo 'Clean Environment - Get Env Info'
-  - bash './scripts/Jenkins_Scripts/CI_Script.sh --clean_Environment --env_Info'
+  - ./scripts/Jenkins_Scripts/CI_Script.sh --clean_Environment --env_Info
 
 install:
   - echo 'Pull third_party images'
-  - bash './scripts/Jenkins_Scripts/CI_Script.sh --pull_Thirdparty_Images'
+  - ./scripts/Jenkins_Scripts/CI_Script.sh --pull_Thirdparty_Images
   - echo 'Pull fabric images'
-  - bash './scripts/Jenkins_Scripts/CI_Script.sh --pull_Fabric_Images'
+  - ./scripts/Jenkins_Scripts/CI_Script.sh --pull_Fabric_Images
   - echo 'Pull fabric-ca images'
-  - bash './scripts/Jenkins_Scripts/CI_Script.sh --pull_Fabric_CA_Image'
+  - ./scripts/Jenkins_Scripts/CI_Script.sh --pull_Fabric_CA_Image
 
 script:
   - echo 'Run byfn_eyfn Tests'
-  - bash './scripts/Jenkins_Scripts/CI_Script.sh --byfn_eyfn_Tests'
+  - ./scripts/Jenkins_Scripts/CI_Script.sh --byfn_eyfn_Tests
