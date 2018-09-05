@@ -7,7 +7,8 @@ services:
 
 before_install:
   - echo 'Clean Environment - Get Env Info'
-  - ls './scripts/Jenkins_Scripts/CI_Script.sh --clean_Environment --env_Info'
+  #- sh './scripts/Jenkins_Scripts/CI_Script.sh --clean_Environment --env_Info'
+  - ls -l './scripts/Jenkins_Scripts/CI_Script.sh'
 
 install:
   - echo 'Pull third_party images'
