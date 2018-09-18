@@ -158,7 +158,7 @@ function networkUp() {
   if [ "${IF_COUCHDB}" == "couchdb" ]; then
     IMAGE_TAG=$IMAGETAG docker-compose -f $COMPOSE_FILE -f $COMPOSE_FILE_COUCH up -d 2>&1
   else
-    IMAGE_TAG=$IMAGETAG docker-compose -f $COMPOSE_FILE up -d 2>&1
+    IMAGE_TAG=$IMAGETAG docker-compose -f $COMPOSE_FILE up --build --force-recreate -d 2>&1
   fi
   if [ $? -ne 0 ]; then
     echo "ERROR !!!! Unable to start network"
