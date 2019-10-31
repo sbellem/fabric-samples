@@ -9,9 +9,25 @@
 CONTAINER_LIST=(peer0.org1 peer1.org1 peer0.org2 peer1.org2 peer0.org3 peer1.org3 orderer)
 COUCHDB_CONTAINER_LIST=(couchdb0 couchdb1 couchdb2 couchdb3 couchdb4 couchdb5)
 
-cd $WORKSPACE/$BASE_DIR/first-network
+# TODO
+# if [ $TRAVIS = true ]; then
+WORKSPACE=../$TRAVIS_BUILD_DIR
+FABRIC_SAMPLES_ABSOLUTE_DIR=$TRAVIS_BUILD_DIR
+# else
+# FABRIC_SAMPLES_ABSOLUTE_DIR=$BASE_FOLDER/fabric-samples
+
+# XXX
+# TODO Parametrize so that it is "CI universal".
+#cd $BASE_FOLDER/fabric-samples || exit
+cd $FABRIC_SAMPLES_ABSOLUTE_DIR || exit
+# XXX
+
+
+# cd $WORKSPACE/$BASE_DIR/first-network
+cd $FABRIC_SAMPLES_ABSOLUTE_DIR/first-network
 # export path
-export PATH=$WORKSPACE/$BASE_DIR/bin:$PATH
+# export PATH=$WORKSPACE/$BASE_DIR/bin:$PATH
+export PATH=$FABRIC_SAMPLES_ABSOLUTE_DIR/bin:$PATH
 
 logs() {
   # Create Logs directory
